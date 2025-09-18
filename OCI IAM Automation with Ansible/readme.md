@@ -29,5 +29,33 @@ By automating these IAM components with Ansible, the project ensures **consisten
 - **Auditability**: Provides a repeatable and documented process for IAM management, making audits and compliance checks easier.  
 - **Efficiency**: Frees up administrator time to focus on higher-value tasks instead of repetitive IAM setup.  
 
+## Prerequisites
 
+You should have the following compartments already created in OCI:  
+- `networkingResources`  
+- `computeResources`  
+- `databaseResources`  
 
+---
+### Steps using the Cloud Shell in OCI
+
+## Setting up environment
+Replace the placeholders with your own **Tenancy OCID** and **Compartment OCIDs**:
+
+```bash
+export PARENT_COMPARTMENT_OCID=<insert-TENANCY-ocid>
+export NETWORKING_COMPARTMENT_OCID=<insert-NETWORKING_COMPARTMENT-ocid>
+export COMPUTE_COMPARTMENT_OCID=<insert-COMPUTE_COMPARTMENT-ocid>
+export DB_COMPARTMENT_OCID=<insert-DB_COMPARTMENT-ocid>
+
+### Creating and accessing a folder to download the code
+mkdir tcb-bmc-iam
+cd tcb-bmc-iam
+
+## Running the Ansible Playbooks from Cloud Shell
+ansible-playbook tcb-bmc-iam-creating-groups-and-policies.yaml
+ansible-playbook tcb-bmc-iam-creating-users-cloud-admin.yaml
+ansible-playbook tcb-bmc-iam-creating-users-dba-admin.yaml
+ansible-playbook tcb-bmc-iam-creating-users-network-admin.yaml
+ansible-playbook tcb-bmc-iam-creating-users-compute-admin.yaml
+ansible-playbook tcb-bmc-iam-creating-users-operators.yaml
