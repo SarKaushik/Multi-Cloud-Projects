@@ -31,7 +31,7 @@ By automating these IAM components with Ansible, the project ensures **consisten
 
 ## Prerequisites
 
-You should have the following compartments already created in OCI:  
+Create necessary compartments in your OCI:  
 - `networkingResources`  
 - `computeResources`  
 - `databaseResources`  
